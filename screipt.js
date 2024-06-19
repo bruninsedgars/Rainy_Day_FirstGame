@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let leftPosition = 50; // Initial position (50% of screen width)
     let bottomPosition = 10; // Initial bottom position in %
     let isJumping = false;
-    let jumpHeight = 20; // Jump height in percentage
-    let jumpSpeed = 10; // Speed of jump
+    const jumpHeight = 20; // Jump height in percentage
+    const jumpSpeed = 0.3; // Speed of jump
 
     document.addEventListener('keydown', (event) => {
         const key = event.key;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             leftPosition += 5;
             if (leftPosition > 95) leftPosition = 95; // Prevent moving off screen
             character.style.left = leftPosition + '%';
-        } else if (key === 'ArrowUp' && !isJumping) {
+        } else if (key === ' ' && !isJumping) { // Check for space bar
             jump();
         }
     });
@@ -30,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (bottomPosition <= 10) {
                         clearInterval(downInterval);
                         isJumping = false;
+                        bottomPosition = 10; // Reset bottom position to initial value
                     } else {
-                        bottomPosition -= jumpSpeed * 0.1;
+                        bottomPosition -= jumpSpeed;
                         character.style.bottom = bottomPosition + '%';
                     }
                 }, 20);
             } else {
-                bottomPosition += jumpSpeed * 0.1;
+                bottomPosition += jumpSpeed;
                 character.style.bottom = bottomPosition + '%';
             }
         }, 20);

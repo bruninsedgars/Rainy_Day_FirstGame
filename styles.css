@@ -4,7 +4,7 @@ body, html {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background: #87CEEB; /* Sky  background */
+  background: #87CEEB; 
 }
 
 .game-container {
@@ -16,7 +16,7 @@ body, html {
 
 .parallax {
   position: absolute;
-  width: 300%;
+  width: 400%; 
   height: 100%;
   animation: moveBackground 20s linear infinite;
 }
@@ -28,32 +28,145 @@ body, html {
 }
 
 .background {
-  background: url('87ae2987eb0cca2c39c8e558eafd4f84.png') repeat-x; /*  city background image */
+  background: url('/mnt/data/background-with-rain-dark-sky_1308-10107.jpg') repeat-x; 
+  background-size: cover; 
   z-index: 1;
-}
-
-.middle {
-  background: url('middle.png') repeat-x; /* Additional layer */
-  z-index: 2;
-  opacity: 0.6;
-  animation: moveMiddle 30s linear infinite;
-}
-
-.foreground {
-  background: url('foreground.png') repeat-x; /* Foreground buildings and objects */
-  z-index: 3;
-  opacity: 0.8;
-  animation: moveForeground 40s linear infinite;
 }
 
 .character {
   position: absolute;
   bottom: 10%;
   left: 50%;
-  width: 50px;
-  height: 50px;
-  background: rgb(255, 183, 0); /* Placeholder for character */
+  width: 60px;
+  height: 120px;
   z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.character .head {
+  width: 40px;
+  height: 40px;
+  background: #f1c40f; 
+  position: relative;
+  top: 10px;
+}
+
+.character .face {
+  width: 30px;
+  height: 30px;
+  background: #3498db; 
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.character .body {
+  width: 40px;
+  height: 60px;
+  background: #f1c40f; 
+  border-radius: 10px;
+  position: relative;
+  top: -5px;
+}
+
+.character .ear-left, .character .ear-right {
+  width: 20px;
+  height: 20px;
+  background: #f1c40f; 
+  position: absolute;
+  top: -20px;
+  border-radius: 50% 50% 0 0;
+  border: 3px solid #e74c3c; 
+}
+
+.character .ear-left {
+  left: -10px;
+}
+
+.character .ear-right {
+  right: -10px;
+}
+
+.character .tail {
+  width: 10px;
+  height: 50px;
+  background: #f1c40f; 
+  position: absolute;
+  top: 40px;
+  left: -15px;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  border: 3px solid #e74c3c; 
+}
+
+.character .arm-left, .character .arm-right {
+  width: 10px;
+  height: 40px;
+  background: #f1c40f; 
+  position: absolute;
+  top: 30px;
+  border-radius: 5px;
+}
+
+.character .arm-left {
+  left: -15px;
+}
+
+.character .arm-right {
+  right: -15px;
+}
+
+.character .hand-left, .character .hand-right {
+  width: 10px;
+  height: 10px;
+  background: #e74c3c; 
+  top: 65px;
+  border-radius: 50%;
+}
+
+.character .hand-left {
+  left: -15px;
+}
+
+.character .hand-right {
+  right: -15px;
+}
+
+.character .leg-left, .character .leg-right {
+  width: 15px;
+  height: 40px;
+  background: #f1c40f; /* Yellow */
+  position: absolute;
+  bottom: 0;
+  border-radius: 5px;
+}
+
+.character .foot-left, .character .foot-right {
+  width: 15px;
+  height: 15px;
+  background: #3498db; 
+  bottom: -5px;
+  border-radius: 50%;
+}
+
+.character .leg-left {
+  left: 5px;
+}
+
+.character .foot-left {
+  left: 5px;
+}
+
+.character .leg-right {
+  right: 5px;
+}
+
+.character .foot-right {
+  right: 5px;
 }
 
 @keyframes moveBackground {
@@ -61,12 +174,3 @@ body, html {
   to { left: -100%; }
 }
 
-@keyframes moveMiddle {
-  from { left: 0; }
-  to { left: -100%; }
-}
-
-@keyframes moveForeground {
-  from { left: 0; }
-  to { left: -100%; }
-}
